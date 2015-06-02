@@ -1,6 +1,7 @@
 class Team < ActiveRecord::Base
-  attr_accessor :roster
-  
+
+  attr_accessor :roster # Do we need this?
+
   belongs_to :league
   has_one :sport, through: :league
 
