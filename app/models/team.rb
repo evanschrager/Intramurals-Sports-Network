@@ -1,12 +1,12 @@
 class Team < ActiveRecord::Base
 
-  attr_accessor :roster # Do we need this?
-
-  belongs_to :league
-  has_one :sport, through: :league
+  belongs_to :sport
+  has_many :games
 
   has_many :users, through: :user_teams
-  has_many :events, through: :league
   has_many :posts, through: :users
+  has_many :user_teams  
 
+  serialize :roster
+  
 end

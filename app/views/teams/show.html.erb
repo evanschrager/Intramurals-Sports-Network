@@ -1,0 +1,6 @@
+<h1><%= @team.name %> Dashboard</h1>
+
+<%= @team.name %>'s Roster:<br>
+<% @team.users.each do |player_object|%>
+  - <%= player_object.name %><br>
+<% end %>

@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :height
       t.integer :weight
-      t.float :rating
       t.text :bio
 
       t.timestamps null: false

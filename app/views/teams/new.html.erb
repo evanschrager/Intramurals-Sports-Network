@@ -1,0 +1,26 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.player_button').click(function(){
+        $('.player_form').append('<input type="text" value="" name="team[roster][]" id="team_roster"><br>')
+      });
+    $('.game_button').click(function(){
+    $('.game_form').append('<input type="text" value="" name="team[games][]" id="team_games"><br>')
+    });
+  });  
+</script>
+
+<%= form_for @team, url: {action: "create"} do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+  <div class="player_form">
+  <%= f.label "Add Teammate Emails" %><br>
+  <input type="text" value="" name="team[roster][]" id="team_roster"><br>
+  </div>
+  <a class="player_button">Add Players</a><br>
+  <div class="game_form">
+  <%= f.label "Team Schedule" %><br>
+  <input type="text" value="" name="team[games][]" id="team_games"><br>
+  </div>
+  <a class="game_button">Add Games</a><br>
+  <%= f.submit "Create" %>
+<% end %>
