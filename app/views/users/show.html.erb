@@ -1,32 +1,19 @@
+<%= render partial: "nav.html" %>
+<!-- NAV DROPDOWN WITH USERS TEAM -->
+<div class="nav_dropdown">
+  <% @user.teams.each do |team_object| %>
+    <div class="nav_tile">
+      <a href=<%="/teams/"+team_object.id.to_s%>> <%= team_object.name %> </a>
+    </div>
+  <% end %>
+</div>
+
+<!-- TITLE -->
 <h1><%= @user.name %>'s: Dashboard</h1>
 
-<style type="text/css"> 
-    #team_create_form, #join_team_form {
-      display: none;
-    }
-    #team_create_form_button,  #join_team_form_button{
-      background-color: black;
-      border: 1px solid #333;
-      color: white;
-      width: 150px;
-      margin-top: 20px;
-    }
-    .hidden {
-      display: none;
-    }
+<!-- NAVBAR -->
 
-</style>
-
-<script type="text/javascript">
-$(document).ready(function(){
-      $('#team_create_form_button').click(function(){
-        $('#team_create_form').toggle("slow");
-      });
-      $('#join_team_form_button').click(function(){
-        $('#join_team_form').toggle("slow");
-      });
-    });
-</script>
+<!-- USER INFO -->
 
 <%= @user.name %><br>
 <%= "Age: " + @user.age.to_s %><br>
@@ -34,23 +21,23 @@ $(document).ready(function(){
 <%= "Weight: " + @user.weight.to_s + "lb"%><br>
 <%= @user.bio %>
 <br>
+
+<!-- JOIN TEAM  -->
+
 <div id="join_team_form_button">Join A Team</div>
   <div id="join_team_form">
-    <label for="team_id_input">Enter Team Code</label>
-    <input type="text" value="" name="team_id[id]" id="team_id_input"><br>
+    <%= form_tag({controller: "teams", action: "edit"}, method: "get") do |f|%>
+      <label for="team_id_input">Enter Team Code</label>
+      <input type="text" value="" name="team_id[id]" id="team_id_input"><br>
+      <input type="submit" value="Join Team">
+    <% end %> 
   </div>
+
+<!-- TEAM CREATE -->
+
+
 <div id="team_create_form_button">Create a New Team</div>
 <div id="team_create_form">
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $('.player_button').click(function(){
-          $('.player_form').append('<input type="text" value="" name="team[roster][]" id="team_roster"><br>')
-        });
-      $('.game_button').click(function(){
-      $('.game_form').append('<input type="text" value="" name="team[games][]" id="team_games"><br>')
-      });
-    });  
-  </script>
 
   <%= form_tag({controller: "teams", action: "create"}, method: "post") do |f|%>
     <label for="team_name">Name</label>
