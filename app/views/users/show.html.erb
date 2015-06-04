@@ -4,8 +4,11 @@
   <% @user.teams.each do |team_object| %>
     <div class="nav_tile">
       <a href=<%="/teams/"+team_object.id.to_s%>> <%= team_object.name %> </a>
-    </div>
+    </div> 
   <% end %>
+  <div class="nav_tile">
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </div>
 </div>
 
 <!-- TITLE -->
