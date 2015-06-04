@@ -1,0 +1,5 @@
+<%= form_for @game, url: new_game_path do |f| %>
+  <%= f.label :game_info, "Game Information" %><br>
+  <%= f.text_area :game_info %><br>
+  <%= f.submit %>
+<% end %>

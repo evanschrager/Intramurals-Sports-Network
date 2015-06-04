@@ -113,3 +113,24 @@ body {
 .not_selected {
   background-color: none;
 }
+
+/*CALENDAR */
+
+.calendar_container {
+  margin-top: 20px;
+}
+
+.day {
+  border: 1px solid black
+}
+
+.create_edit_vacate_games {
+  padding: 20px;
+  margin: 20px;
+  background-color: #aaa;
+  max-width: 200px;
+  border: 1px solid black;
+  display: none;
+}
+
+

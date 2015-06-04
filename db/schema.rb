@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20150604132629) do
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.datetime   "game_time"
+    t.datetime "game_time"
     t.string   "location"
-    t.text   "game_info"
+    t.string   "game_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

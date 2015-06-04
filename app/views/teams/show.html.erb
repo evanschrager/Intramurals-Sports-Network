@@ -1,8 +1,30 @@
 <%= render partial: "nav.html" %>
 
 <h1><%= @team.name %> Dashboard</h1>
+<div class="team_id"><%= @team.id %></div>
 
 <%= @team.name %>'s Roster:<br>
 <% @team.users.each do |player_object|%>
   - <%= player_object.name %><br>
 <% end %>
+
+<div class="calendar_container">
+<%= month_calendar do |date| %>
+  <%= date %>
+<% end %>
+</div>
+
+<div class="create_edit_vacate_games">
+  <div class="create_game_button">
+    <%= form_for @game, url: games_path do |f| %>
+      <%= f.label :game_info, "Game Information" %><br>
+      <%= f.text_area :game_info %><br>
+      <%= f.label :game_tame, "Game Time" %><br>
+      <input type="text" value="" name="game[game_time]" id="game_time"><br><br>
+      <%= f.label :location, "Location" %><br>
+      <input type="text" value="" name="game[location]" id="game_location"><br><br>
+      <input class="hidden_team_id" name="game[team_id]"type="text" value=''>
+      <input type="submit" value="Add Game">
+    <% end %>
+  </div>
+</div>
