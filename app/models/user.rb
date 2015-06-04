@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :user_teams
   has_many :teams, through: :user_teams
+  has_many :games, through: :teams
 end
