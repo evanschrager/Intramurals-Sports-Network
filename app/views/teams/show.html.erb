@@ -9,22 +9,36 @@
 <% end %>
 
 <div class="calendar_container">
-<%= month_calendar do |date| %>
-  <%= date %>
+<% if @games.count > 0 %>
+    <%= month_calendar events: @games do |date, games| %>
+      <%= date %>
+      <% games.each do |game| %>
+        <div>
+          <%= game.game_info%> | 
+          <%=link_to "Edit", edit_game_path(game) %> | 
+          <%= link_to 'Delete', game_path(game), :method => :delete %>
+        </div>
+      <% end %>
+    <% end %>
+<% else %>
+    <%= month_calendar do |date| %>
+      <%= date %>
+    <% end %>
 <% end %>
 </div>
 
 <div class="create_edit_vacate_games">
-  <div class="create_game_button">
-    <%= form_for @game, url: games_path do |f| %>
-      <%= f.label :game_info, "Game Information" %><br>
-      <%= f.text_area :game_info %><br>
-      <%= f.label :game_tame, "Game Time" %><br>
-      <input type="text" value="" name="game[game_time]" id="game_time"><br><br>
-      <%= f.label :location, "Location" %><br>
-      <input type="text" value="" name="game[location]" id="game_location"><br><br>
-      <input class="hidden_team_id" name="game[team_id]"type="text" value=''>
-      <input type="submit" value="Add Game">
-    <% end %>
-  </div>
+  <div class="create_game_button">Create New Game</div>
+    <div class="create_game_form">
+      <%= form_for @game, url: games_path do |f| %>
+        <%= f.label :game_info, "Game Information" %><br>
+        <%= f.text_area :game_info %><br>
+        <%= f.label :game_tame, "Game Time" %><br>
+        <input type="text" value="" name="game[game_time]" id="game_time"><br><br>
+        <%= f.label :location, "Location" %><br>
+        <input type="text" value="" name="game[location]" id="game_location"><br><br>
+        <input class="hidden_team_id" name="game[team_id]"type="text" value=''>
+        <input type="submit" value="Add Game">
+      <% end %>
+    </div>
 </div>

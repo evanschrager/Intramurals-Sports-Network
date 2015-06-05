@@ -3,11 +3,12 @@ class TeamsController < ApplicationController
   def edit
     @team = Team.find(params[:team_id][:id])
     @user = User.find(params[:id])
-    unless @team.users.include?(@user)
+    if !@team.users.include?(@user)
       @team.users << @user  
       redirect_to team_path(@team) 
-    end
+    else
       redirect_to user_path(@user) 
+    end
   end
 
   def create
@@ -27,6 +28,7 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
     @game = Game.new
+    @games = @team.games
   end 
 
   private

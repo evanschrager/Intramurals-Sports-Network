@@ -5,7 +5,7 @@ class Game < ActiveRecord::Base
   has_many :posts, through: :users
 
   extend SimpleCalendar
-  has_calendar
+  has_calendar :attribute => :game_time
 
   attr_accessor :roster
 
