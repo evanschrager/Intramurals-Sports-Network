@@ -12,6 +12,8 @@ Add some spiffy screenshots of your app here.
 
 We have competed in intramural sports for years and have always had to scramble to find replacement players when teammates cannot make it. We have resorted to mass texting our network and many times have been unsuccessful. Our app solves this problem by making it easy to find replacement players who are eager to compete!
 
+Our mission: Eradicate forfeiting due to lack of players in attendance
+
 ## Features
 
 - Create a User profile
@@ -34,7 +36,12 @@ If you'd like to improve our app, please fork this repo and submit a pull reques
 
 ## Future
 
-In the future, we'd like this application to be a fully functioning intramural management tool. If it can become useful enough, we can integrate it with intramural leagues worldwide as a means to manage attendance. Our mission: to eradicate forfeiting due to lack of players in attendance
+In the future, we'd like this application to be a fully functioning intramural management tool. If it can become useful enough, we can integrate it with intramural leagues worldwide as a means to manage attendance. 
+
+- Review system to review teams and players after games (i.e. "Player was a ball hog", "Team never let me play")
+- Ability for Free Agents to put up posts to indicate interest in playing so teams can seek them out
+- Seamless interface so scheduling controls can all happen from a single screen
+- Styling touch-ups
 
 ## Author
 
