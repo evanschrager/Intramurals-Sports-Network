@@ -1,8 +1,8 @@
-# Intramurals Sports Network
+# Intramural Sports Network
 
 ## Description
 
-Add a short description of your app.
+Intramural Sports Network aims to provide a solution to the everlasting problem of finding substitute players to fill in for absentees in your intramural sports league competition. Our app will help you find a replacement in minutes so you don't have to forfeit your games.
 
 ## Screenshots
 
@@ -10,30 +10,35 @@ Add some spiffy screenshots of your app here.
 
 ## Background
 
-Why did you want to make this app? What was your development process
-like?
+We have competed in intramural sports for years and have always had to scramble to find replacement players when teammates cannot make it. We have resorted to mass texting our network and many times have been unsuccessful. Our app solves this problem by making it easy to find replacement players who are eager to compete!
 
 ## Features
 
-Bullet point some of the key features of your app here.
+- Create a User profile
+- Ability to browse Game Postings as a Free Agent
+- Create your team and add your teammates on the roster
+- Join an existing team with the Team ID provided by your team captain
+- Manage your attendance by automatically posting to the board whenever a user cannot attend your game
 
 ## Usage
 
-How do users use your app?
+- Go to ISN.com (not secured yet) and register as a user. 
+- If you are creating a team from scratch, select the "Create a Team" option in the registration process
+- If you have a TEAM ID from your captain, input it during the registration process to be added to the team
+- If you do not wish to join a team, simply browse the Posts board as a Free Agent
+- If you'd like to fill an open slot, click the "Join This Team" option on the Post page
 
 ## Development/Contribution
 
-Explain how people can contribute to your app. How should they write tests?
-Any things in particular you'd like to see in pull requests?
+If you'd like to improve our app, please fork this repo and submit a pull request! :)
 
 ## Future
 
-What features are you currently working on? Only mention things that you
-actually are implementing. No pie-in-the-sky-never-gonna-happen stuff.
+In the future, we'd like this application to be a fully functioning intramural management tool. If it can become useful enough, we can integrate it with intramural leagues worldwide as a means to manage attendance. Our mission: to eradicate forfeiting due to lack of players in attendance
 
 ## Author
 
-Link to your blog, twitter, etc!
+Evan Schrager, Evan Rosse, Jack Gaybrick. Created at the Flatiron School.
 
 ## License
 
