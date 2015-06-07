@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     @games = games.flatten
     @games << @user.games
     @games = @games.flatten
+    @games = @games.uniq
   end 
 
   def update

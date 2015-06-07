@@ -70,15 +70,16 @@
     <%= month_calendar events: @games do |date, games| %>
       <%= date %>
       <% games.each do |game| %>
+        <% if @user.games_not_attending.include?(game.id.to_s) %>
+        <% else %>
         <div>
-        <div class="game_attendance">
-          <% if @user.games_not_attending.include?(game.id.to_s) %>
-          <% else %>
-            <%= game.game_info %></div> | 
-            <%=link_to "Edit", edit_game_path(game) %> | 
-            <%= link_to 'Delete', game_path(game), :method => :delete %>
-          <% end %>
+          <div class="game_attendance">
+              <%= game.game_info %>
+          </div> | 
+          <%=link_to "Edit", edit_game_path(game) %> | 
+          <%= link_to 'Delete', game_path(game), :method => :delete %>
         </div>
+        <% end %>
       <% end %>
     <% end %>
 <% end %>
