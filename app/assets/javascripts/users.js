@@ -10,7 +10,7 @@ $(document).ready(function(){
 
   // CREATE PLAYER ON TEAM CREATE PAGE
       $('.player_button').click(function(){
-          $('.player_form').append('<input type="text" value="" name="team[roster][]" id="team_roster"><br>')
+          $('.player_form').append('<input type="text" value="" name="team[roster][]" id="team_roster"><br>');
         });
       $('.game_button').click(function(){
       $('.game_form').append('<input type="text" value="" name="team[games][]" id="team_games"><br>')
@@ -23,7 +23,11 @@ $(document).ready(function(){
 
   // ADD GAME TO CALENDAR ON CLICK
     $('.day').click(function(){
-      $('.create_edit_vacate_games').toggle('fast')
+      $('.create_edit_vacate_games').show('fast')
+    });
+
+    $('.close_window').click(function(){
+      $('.create_edit_vacate_games').hide('fast');
     });
 
     $('.create_game_button').click(function(){
@@ -37,7 +41,18 @@ $(document).ready(function(){
       $('.hidden_team_id').val(team_id);
     });
 
-  //AJAX FOR EDIT
+  //ADDTENDING GAMES
 
+    $('.game_attendance').click(function(){
+      $('.attending_container').show('fast');
+
+      var game_info_pretrim = $(this).text();
+      var game_info = $.trim(game_info_pretrim);
+      $('.games_not_attending_game_info').val(game_info);
+
+      $('.close_out').click(function(){
+        $('.attending_container').hide();
+      })
+    });
 
 });

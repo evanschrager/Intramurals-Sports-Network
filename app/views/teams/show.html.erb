@@ -1,5 +1,20 @@
 <%= render partial: "nav.html" %>
+<!-- NAV DROPDOWN WITH USERS TEAM -->
+<div class="nav_dropdown">
+  <% current_user.teams.each do |team_object| %>
+    <div class="nav_tile">
+      <a href=<%="/teams/"+team_object.id.to_s%>> <%= team_object.name %> </a>
+    </div> 
+  <% end %>
+  <div class="nav_tile">
+    <a href=<%="/users/"+current_user.id.to_s%>> Dashboard </a>
+  </div> 
+  <div class="nav_tile">
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </div>
+</div>
 
+<!-- START DASHBOARD -->
 <h1><%= @team.name %> Dashboard</h1>
 <div class="team_id"><%= @team.id %></div>
 
@@ -27,7 +42,7 @@
 <% end %>
 </div>
 
-<div class="create_edit_vacate_games">
+<div class="create_edit_vacate_games"><div class="close_window">X</div>
   <div class="create_game_button">Create New Game</div>
     <div class="create_game_form">
       <%= form_for @game, url: games_path do |f| %>

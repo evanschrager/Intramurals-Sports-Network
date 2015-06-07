@@ -2,12 +2,14 @@ Rails.application.routes.draw do
 
 
   devise_for :users, :controllers => {:registrations => "users/registrations", :passwords => "users/passwords"}
+  
   resources :games
 
   root 'users#index'
   
   resources :users 
   resources :teams
+  resources :posts
 
   # resources :magazines do
   #   resources :ads

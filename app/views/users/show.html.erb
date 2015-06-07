@@ -9,6 +9,9 @@
   <div class="nav_tile">
     <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
   </div>
+  <div class="nav_tile">
+    <%= link_to('Posts', posts_path, :method => :get) %>
+  </div>
 </div>
 
 <!-- TITLE -->
@@ -61,3 +64,24 @@
     </div>
   <% end %>
 </div>
+
+<div class="calendar_container">
+<% if @games.count > 0 %>
+    <%= month_calendar events: @games do |date, games| %>
+      <%= date %>
+      <% games.each do |game| %>
+        <div>
+        <div class="game_attendance">
+          <% if @user.games_not_attending.include?(game.id.to_s) %>
+          <% else %>
+            <%= game.game_info %></div> | 
+            <%=link_to "Edit", edit_game_path(game) %> | 
+            <%= link_to 'Delete', game_path(game), :method => :delete %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+<% end %>
+</div>
+
+<%= render partial: "notAttending.html" %>

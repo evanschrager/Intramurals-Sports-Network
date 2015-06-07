@@ -22,7 +22,7 @@ class GamesController < ApplicationController
     @team = @game.team
     @game.destroy
     redirect_to team_path(@team)
-  end 
+  end
 
   def game_params
   end 
