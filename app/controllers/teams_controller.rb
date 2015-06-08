@@ -12,15 +12,20 @@ class TeamsController < ApplicationController
   end
 
   def create
+
     @user = User.find(params[:team][:user_id].to_i)
     @team = Team.create(name: params[:team][:name])
-    
+
     @user.teams << @team
 
     params[:team][:roster] << @user.email
     @team.roster_emails << params[:team][:roster]
 
+    @sport = Sport.find(params[:team][:sport_id])
+    @team.sport = @sport
+
     @team.save
+    
     redirect_to team_path(@team)
   end 
 
@@ -32,6 +37,6 @@ class TeamsController < ApplicationController
 
   private
   def team_params
-    params.require(:team).permit(:name, :roster => [], :games => [])
+    params.require(:team).permit(:name, :roster => [], :sport => [])
   end
 end

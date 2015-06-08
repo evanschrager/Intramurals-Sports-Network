@@ -1,7 +1,18 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    if params[:post] 
+      if params[:post][:sport_id]
+        posts = Post.all
+        @posts = posts.select do |post|
+          post.game.team.sport.id == params[:post][:sport_id].to_i
+        end 
+      else
+        @posts = Post.all
+      end 
+    else
+      @posts = Post.all
+    end 
   end
 
   def create

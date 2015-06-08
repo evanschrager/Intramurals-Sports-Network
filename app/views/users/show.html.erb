@@ -48,16 +48,15 @@
   <%= form_tag({controller: "teams", action: "create"}, method: "post") do |f|%>
     <label for="team_name">Name</label>
     <input type="text" value="" name="team[name]" id="team_name"><br>
+    <div class="game_form">
+      <label for="team_sport_id">Sport: </label>
+      <%= collection_select(:team, :sport_id, Sport.all, :id, :name, prompt: true) %>
+    </div>
     <div class="player_form">
         <label for="team_roster">Add Teammate Emails</label>
         <input type="text" value="" name="team[roster][]" id="team_roster"><br>
     </div>
-    <a class="player_button">Add Players</a><br>
-    <div class="game_form">
-        <label for="team_games">Team Schedule</label>
-        <input type="text" value="" name="team[games][]" id="team_games"><br>
-    </div>
-    <a class="game_button">Add Games</a><br>
+    <a class="player_button">Add Email</a><br>
     <input type="submit" value="Create">
     <div class="hidden">
       <input type="text" value=<%= @user.id %> name="team[user_id]" id="team_games" >
