@@ -4,7 +4,9 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:team_id][:id])
     @user = User.find(params[:id])
     if !@team.users.include?(@user)
-      @team.users << @user  
+      @team.users << @user
+      @team.roster_emails << @user.email
+      @team.save
       redirect_to team_path(@team) 
     else
       redirect_to user_path(@user) 
@@ -18,8 +20,9 @@ class TeamsController < ApplicationController
 
     @user.teams << @team
 
-    params[:team][:roster] << @user.email
+    # params[:team][:roster] << @user.email
     @team.roster_emails << params[:team][:roster]
+    @team.roster_emails.flatten!
 
     @sport = Sport.find(params[:team][:sport_id])
     @team.sport = @sport
