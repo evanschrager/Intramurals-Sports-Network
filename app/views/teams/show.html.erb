@@ -15,7 +15,7 @@
 </div>
 
 <!-- START DASHBOARD -->
-<h1><%= @team.name %> Dashboard</h1>
+<h1><%= @team.name %> Dashboard</h1><%= link_to 'Delete Team', team_path(@team), :method => :delete %>
 <div class="team_id"><%= @team.id %></div>
 
 <%= @team.name %>'s Roster:<br>

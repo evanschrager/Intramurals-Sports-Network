@@ -35,6 +35,12 @@ class TeamsController < ApplicationController
     @games = @team.games
   end 
 
+  def destroy
+    @team = Team.find(params[:id])
+    @team.destroy
+    redirect_to current_user
+  end
+
   private
   def team_params
     params.require(:team).permit(:name, :roster => [], :sport => [])
