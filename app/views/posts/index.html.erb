@@ -1,0 +1,10 @@
+<%= link_to "All Posts", posts_path %>
+<label for="post_sport_id">Sort Posts By Sport:</label>
+<%= form_tag({controller: "posts", action: "index"}, method: "get") do |f|%>
+<%= collection_select(:post, :sport_id, Sport.all, :id, :name, prompt: true) %>
+<input type="submit" value="Filter">
+<% end %>
+
+<% @posts.each do |post| %>
+  <div><li class='add_post'><%= post.title %><%= render partial: "attendingPostedGame.html" %></li></div>
+<% end %>  

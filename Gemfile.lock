@@ -221,6 +221,8 @@ GEM
       rubyzip (~> 1.0)
       websocket (~> 1.0)
     shellany (0.0.1)
+    simple_calendar (1.1.10)
+      rails (>= 3.0)
     simplecov (0.10.0)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -285,6 +287,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   selenium-webdriver
+  simple_calendar (~> 1.1.0)
   simplecov
   spring
   thin

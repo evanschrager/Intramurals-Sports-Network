@@ -9,6 +9,9 @@
   <div class="nav_tile">
     <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
   </div>
+  <div class="nav_tile">
+    <%= link_to('Posts', posts_path, :method => :get) %>
+  </div>
 </div>
 
 <!-- TITLE -->
@@ -45,19 +48,40 @@
   <%= form_tag({controller: "teams", action: "create"}, method: "post") do |f|%>
     <label for="team_name">Name</label>
     <input type="text" value="" name="team[name]" id="team_name"><br>
+    <div class="game_form">
+      <label for="team_sport_id">Sport: </label>
+      <%= collection_select(:team, :sport_id, Sport.all, :id, :name, prompt: true) %>
+    </div>
     <div class="player_form">
         <label for="team_roster">Add Teammate Emails</label>
         <input type="text" value="" name="team[roster][]" id="team_roster"><br>
     </div>
-    <a class="player_button">Add Players</a><br>
-    <div class="game_form">
-        <label for="team_games">Team Schedule</label>
-        <input type="text" value="" name="team[games][]" id="team_games"><br>
-    </div>
-    <a class="game_button">Add Games</a><br>
+    <a class="player_button">Add Email</a><br>
     <input type="submit" value="Create">
     <div class="hidden">
       <input type="text" value=<%= @user.id %> name="team[user_id]" id="team_games" >
     </div>
   <% end %>
 </div>
+
+<div class="calendar_container">
+<% if @games.count > 0 %>
+    <%= month_calendar events: @games do |date, games| %>
+      <%= date %>
+      <% games.each do |game| %>
+        <% if @user.games_not_attending.include?(game.id.to_s) %>
+        <% else %>
+        <div>
+          <div class="game_attendance">
+              <%= game.game_info %>
+          </div> | 
+          <%=link_to "Edit", edit_game_path(game) %> | 
+          <%= link_to 'Delete', game_path(game), :method => :delete %>
+        </div>
+        <% end %>
+      <% end %>
+    <% end %>
+<% end %>
+</div>
+
+<%= render partial: "notAttending.html" %>

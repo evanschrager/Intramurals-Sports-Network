@@ -1,0 +1,8 @@
+<div class='attending_container'>
+  <div class='attending_post'>
+    <%= form_tag({controller: "posts", action: "create"}, method: "post") do |f|%>
+      <input type="text" value="" name="posts_attending[game_info]" class="posts_attending_game_info"><br>
+      <input type="submit" value="Join Game">
+    <% end %>
+  </div>
+</div>

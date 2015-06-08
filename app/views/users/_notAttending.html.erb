@@ -1,0 +1,10 @@
+<div class='attending_container'>
+  <div class='close_out'>X</div>
+  <div class='attending'>I'm Going</div>
+  <div class='not_attending'>
+    <%= form_tag({controller: "users", action: "update"}, method: "patch") do |f|%>
+      <input type="text" value="" name="games_not_attending[game_info]" class="games_not_attending_game_info"><br>
+      <input type="submit" value="I Can't Make It">
+    <% end %>
+  </div>
+</div>

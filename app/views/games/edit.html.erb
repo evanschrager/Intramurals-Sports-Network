@@ -1,0 +1,11 @@
+<div class="edit_game_form">
+  <%= form_for @game, url: game_path do |f| %>
+    <%= f.label :game_info, "Game Information" %><br>
+    <%= f.text_area :game_info %><br>
+    <%= f.label :game_tame, "Game Time" %><br>
+    <input type="text" value=<%=@game.game_time%> name="game[game_time]" id="game_time"><br><br>
+    <%= f.label :location, "Location" %><br>
+    <input type="text" value="" name="game[location]" id="game_location"><br><br>
+    <input type="submit" value="Update Game">
+  <% end %>
+</div>

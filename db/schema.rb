@@ -11,15 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604132629) do
+ActiveRecord::Schema.define(version: 20150608145047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.datetime   "game_time"
+    t.datetime "game_time"
     t.string   "location"
-    t.text   "game_info"
+    t.string   "game_info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "team_id"
+    t.integer  "user_id"
+  end
+
+  create_table "post_games", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,6 +39,8 @@ ActiveRecord::Schema.define(version: 20150604132629) do
     t.boolean  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "game_id"
   end
 
   create_table "sports", force: :cascade do |t|
@@ -43,6 +54,7 @@ ActiveRecord::Schema.define(version: 20150604132629) do
     t.text     "roster_emails", default: [],              array: true
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "sport_id"
   end
 
   create_table "user_teams", force: :cascade do |t|
@@ -70,6 +82,7 @@ ActiveRecord::Schema.define(version: 20150604132629) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "games_not_attending",    default: [],              array: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
