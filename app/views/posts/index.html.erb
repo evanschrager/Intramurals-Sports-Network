@@ -1,3 +1,5 @@
+<%= link_to "User Dashboard", current_user %>
+<h1>Posts</h1>
 <%= link_to "All Posts", posts_path %>
 <label for="post_sport_id">Sort Posts By Sport:</label>
 <%= form_tag({controller: "posts", action: "index"}, method: "get") do |f|%>

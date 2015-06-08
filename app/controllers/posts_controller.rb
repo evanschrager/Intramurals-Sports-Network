@@ -19,7 +19,11 @@ class PostsController < ApplicationController
     @game = Game.where(:game_info => params[:posts_attending][:game_info])
     @user = current_user
     @post = Post.where(:title => params[:posts_attending][:game_info])
-    Post.destroy(@post)
+    if @post.length > 1
+      @post[0].destroy
+    else
+      @post.destroy
+    end
 
     if @user.games_not_attending.include?(@game[0].id.to_s)
       @user.games_not_attending.delete(@game[0].id.to_s)

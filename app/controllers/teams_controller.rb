@@ -37,6 +37,12 @@ class TeamsController < ApplicationController
 
   def destroy
     @team = Team.find(params[:id])
+    @team.games.each do |game|
+      game.posts.each do |post|
+        post.destroy
+      end
+      game.destroy
+    end
     @team.destroy
     redirect_to current_user
   end
