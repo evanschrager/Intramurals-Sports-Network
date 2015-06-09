@@ -9,7 +9,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @game = Game.find(params[:id])
     @team = Team.new
     games = @user.teams.map do |team|
                 team.games.map do |game|

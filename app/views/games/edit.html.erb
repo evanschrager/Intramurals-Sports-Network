@@ -5,7 +5,7 @@
     <%= f.label :game_tame, "Game Date" %><br>
     <input type="text" value=<%=@game.game_date%> name="game[game_date]" id="game_date"><br><br>
     <%= f.label :game_tame, "Game Time" %><br>
-    <input type="text" value=<%=@game.game_time%> name="game[game_time]" id="game_time"><br><br>
+    <input type="text" value=<%=@game.game_time.strftime("%I:%M%p")%> name="game[game_time]" id="game_time"><br><br>
     <%= f.label :location, "Location" %><br>
     <input type="text" value=<%=@game.location%> name="game[location]" id="game_location"><br><br>
     <input type="submit" value="Update Game">
