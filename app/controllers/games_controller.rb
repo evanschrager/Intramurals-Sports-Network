@@ -19,6 +19,7 @@ class GamesController < ApplicationController
 
   def destroy
     @game = Game.find(params[:id])
+    @game.posts.each {|post| Post.destroy(post.id)}
     @game.destroy
     redirect_to current_user
   end
