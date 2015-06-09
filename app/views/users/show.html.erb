@@ -1,4 +1,5 @@
 <%= render partial: "nav.html" %>
+<div class="user_container">
 <!-- NAV DROPDOWN WITH USERS TEAM -->
 <div class="nav_dropdown">
   <% @user.teams.each do |team_object| %>
@@ -10,81 +11,78 @@
     <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
   </div>
 </div>
-<div class="user_container">
 
-  <!-- TITLE -->
-  <h1><%= @user.name %>'s: Dashboard</h1>
-
-  <!-- NAVBAR -->
-
-  <!-- USER INFO -->
-
-  <%= @user.name %><br>
-  <%= "Age: " + @user.age.to_s %><br>
-  <%= "Height: " + @user.height.to_s %><br>
-  <%= "Weight: " + @user.weight.to_s + "lb"%><br>
-  <%= @user.bio %>
-  <br>
+  <!-- USER-NAME -->
+  <div class="user_name_container">
+    <h1 class="user_name"><%= @user.name %></h1>
+  </div>
 
   <div class="join_create_team_container">
-    <!-- JOIN TEAM  -->
-
-    <div id="join_team_form_button">Join A Team</div>
-      <div id="join_team_form">
-        <%= form_tag({controller: "teams", action: "edit"}, method: "get") do |f|%>
-          <label for="team_id_input">Enter Team Code</label>
-          <input type="text" value="" name="team_id[id]" id="team_id_input"><br>
-          <input type="submit" value="Join Team">
-        <% end %> 
-      </div>
+  <!-- BUTTONS -->
+    <div class="join_team">
+      <!-- JOIN TEAM  -->
+      <div id="join_team_form_button">Join Team</div>
+        <div id="join_team_form">
+          <%= form_tag({controller: "teams", action: "edit"}, method: "get") do |f|%>
+            <label for="team_id_input">Enter Team Code</label>
+            <input type="text" value="" name="team_id[id]" id="team_id_input"><br>
+            <input type="submit" value="Join Team">
+          <% end %> 
+        </div>
+    </div>
 
     <!-- TEAM CREATE -->
+    <!-- <div class="join_team"> -->
+    <div class="create_team">
+      <div id="team_create_form_button">New Team</div>
+      <div id="team_create_form">
 
-    <div id="team_create_form_button">Create a New Team</div>
-    <div id="team_create_form">
-
-      <%= form_tag({controller: "teams", action: "create"}, method: "post") do |f|%>
-        <label for="team_name">Name</label>
-        <input type="text" value="" name="team[name]" id="team_name"><br>
-        <div class="game_form">
-          <label for="team_sport_id">Sport: </label>
-          <%= collection_select(:team, :sport_id, Sport.all, :id, :name, prompt: true) %>
-        </div>
-        <div class="player_form">
-            <label for="team_roster">Add Teammate Emails</label>
-            <input type="text" value="" name="team[roster][]" id="team_roster"><br>
-        </div>
-        <a class="player_button">Add Email</a><br>
-        <input type="submit" value="Create">
-        <div class="hidden">
-          <input type="text" value=<%= @user.id %> name="team[user_id]" id="team_games" >
-        </div>
-      <% end %>
+        <%= form_tag({controller: "teams", action: "create"}, method: "post") do |f|%>
+          <label for="team_name">Name</label>
+          <input type="text" value="" name="team[name]" id="team_name"><br>
+          <div class="game_form">
+            <label for="team_sport_id">Sport: </label>
+            <%= collection_select(:team, :sport_id, Sport.all, :id, :name, prompt: true) %>
+          </div>
+          <div class="player_form">
+              <label for="team_roster">Add Teammate Emails</label>
+              <input type="text" value="" name="team[roster][]" id="team_roster"><br>
+          </div>
+          <a class="player_button">Add Email</a><br>
+          <input type="submit" value="Create">
+          <div class="hidden">
+            <input type="text" value=<%= @user.id %> name="team[user_id]" id="team_games" >
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="calendar_container">
-<% if @games.count > 0 %>
-    <%= month_calendar events: @games do |date, games| %>
-      <%= date %>
-      <% games.each do |game| %>
-        <% if @user.games_not_attending.include?(game.id.to_s) %>
-        <% else %>
-        <div>
-          <div class="game_attendance">
-              <%= game.game_info %><br>
+  <div class="calendar">
+  <% if @games.count > 0 %>
+      <%= month_calendar events: @games do |date, games| %>
+        <%= date %>
+        <% games.each do |game| %>
+          <% if @user.games_not_attending.include?(game.id.to_s) %>
+          <% else %>
+          <div class=<%= game.team.sport.name %>></div>
+          <div class="calendar_game_info">
+            <div class="game_attendance">
+                <%= game.game_info %><br>
+            </div>
+                <%= game.game_date %><br>
+                <%= game.game_time.strftime("%I:%M%p") %><br>
+                <%= game.location %><br>
+            <%=link_to "Edit", edit_game_path(game) %> | 
+            <%= link_to 'Delete', game_path(game), :method => :delete %>
           </div>
-              <%= game.game_date %><br>
-              <%= game.game_time.strftime("%I:%M%p") %><br>
-              <%= game.location %><br>
-          <%=link_to "Edit", edit_game_path(game) %> | 
-          <%= link_to 'Delete', game_path(game), :method => :delete %>
-        </div>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
-<% end %>
+  <% end %>
+  </div>
 </div>
 
 <%= render partial: "notAttending.html" %>

@@ -11,3 +11,140 @@
   height: 100vh;
   width: 100vw
 }
+
+.user_container {
+  margin-top: 50px;
+  width: 100%;
+  min-height: 150px;
+  display: inline-block;
+  background: linear-gradient( rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35) ), url("http://oi62.tinypic.com/4lfzb9.jpg") no-repeat;
+  background-size: 100%;
+}
+
+.join_create_team_container {
+  float: right;
+}
+
+.user_name_container {
+  float: left;
+  margin-left: 50px;
+  height: 100%;
+  margin-top: 1%;
+  color: white;
+}
+
+.user_name {
+  font-size: 60px;
+}
+
+/*JOIN TEAM AND CREATE TEAM BUTTONS*/
+
+#team_create_form_button,  #join_team_form_button{
+  color: white;
+  width: 150px;
+  height: 40px;
+  margin-top: 20px;
+  margin-right: 50px;
+  border-radius: 5%;
+  font-size: 25px;
+  text-align: center;
+}
+
+#join_team_form_button {
+  background-color: #2e3848;
+}
+
+#team_create_form_button {
+  background-color: #00e4b4
+}
+
+
+ /*JUNK FROM FORMER CSS PAGE*/
+ #team_create_form, #join_team_form {
+  display: none;
+}
+.hidden {
+  display: none;
+}
+
+.selected {
+  background-color: white;
+}
+
+.not_selected {
+  background-color: none;
+}
+
+/*CALENDAR */
+
+.calendar_container {
+  width: 100%;
+}
+
+.day {
+  border: 1px solid black;
+}
+
+.create_edit_vacate_games, .attending_container{
+  padding: 20px;
+  margin: 20px;
+  background-color: #aaa;
+  max-width: 200px;
+  border: 1px solid black;
+  display: none;
+}
+
+.create_game_form, .hidden_team_id {
+  display: none;
+}
+
+.create_game_button {
+  background-color: white;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.game_attendance {
+  background-color: #98FB98;
+  border: 1px solid #21a521;
+  margin-top: 5px;
+}
+
+.attending {
+  background-color: #98FB98;
+  border: 1px solid black;
+}
+
+.not_attending {
+  background-color: #FF3030;
+  margin-top: 5px;
+  border: 1px solid black;
+}
+
+.calendar_game_info {
+  display: none;
+}
+
+.calendar {
+  width: 100%;
+  text-align: center;
+}
+
+.calendar table{
+  width: 90%;
+  margin-left: 5%;
+}
+
+.calendar th {
+  text-align: center
+}
+
+.calendar-header {
+  font-size: 40px;
+}
+
+td.day {
+  height: 150px;
+}
+
+
