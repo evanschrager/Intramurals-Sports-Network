@@ -37,7 +37,7 @@ $(document).ready(function(){
     $('.day').click(function(){
       var team_id = $('.team_id').text();
       var game_date = $(this).text();
-      $('#game_time').val(game_date);
+      $('#game_date').val(game_date);
       $('.hidden_team_id').val(team_id);
     });
 

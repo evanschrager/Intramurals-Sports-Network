@@ -73,8 +73,11 @@
         <% else %>
         <div>
           <div class="game_attendance">
-              <%= game.game_info %>
-          </div> | 
+              <%= game.game_info %><br>
+          </div>
+              <%= game.game_date %><br>
+              <%= game.game_time.strftime("%I:%M%p") %><br>
+              <%= game.location %><br>
           <%=link_to "Edit", edit_game_path(game) %> | 
           <%= link_to 'Delete', game_path(game), :method => :delete %>
         </div>

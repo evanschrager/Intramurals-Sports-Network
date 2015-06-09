@@ -5,13 +5,13 @@ class GamesController < ApplicationController
 
   def update
     @game = Game.find(params[:id])
-    @game.update(:game_info => params[:game][:game_info], :game_time => params[:game][:game_time], :location => params[:game][:location])
+    @game.update(:game_info => params[:game][:game_info], :game_time => params[:game][:game_time], :game_date => params[:game][:game_date], :location => params[:game][:location])
     @team = @game.team
     redirect_to team_path(@team)
   end 
 
   def create
-    @game = Game.create(:game_info => params[:game][:game_info], :game_time => params[:game][:game_time], :location => params[:game][:location])
+    @game = Game.create(:game_info => params[:game][:game_info], :game_time => params[:game][:game_time], :game_date => params[:game][:game_date], :location => params[:game][:location])
     @team = Team.find(params[:game][:team_id].to_i)
     @team.games << @game
     redirect_to team_path(@team)
@@ -24,6 +24,6 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:game_time, :location, :game_info, :team_id, :user_id)
+    params.require(:game).permit(:game_time, :game_date, :location, :game_info, :team_id, :user_id)
   end  
 end

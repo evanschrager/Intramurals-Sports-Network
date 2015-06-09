@@ -8,5 +8,14 @@
 <% end %>
 
 <% @posts.each do |post| %>
-  <div><li class='add_post'><%= post.title %><%= render partial: "attendingPostedGame.html" %></li></div>
+  <div><li class='add_post'>
+  <div>
+    <div class="post_title"><%= post.title %></div>
+    <ul>
+      <li>Game Date: <%= post.game.game_date %></li>
+      <li>Game Time: <%= post.game.game_time.strftime("%I:%M%p") %></li>
+      <li>Location: <%= post.game.location %></li>
+    </ul>
+  </div>
+  <%= render partial: "attendingPostedGame.html" %></li></div>
 <% end %>  
