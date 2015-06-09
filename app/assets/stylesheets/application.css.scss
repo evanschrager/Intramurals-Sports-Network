@@ -21,8 +21,8 @@
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 body {
-  padding-top: 70px;
-  padding-bottom: 30px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .theme-dropdown .dropdown-menu {
@@ -33,61 +33,6 @@ body {
 
 .theme-showcase > p > .btn {
   margin: 5px 0;
-}
-
-/*NAVAGATION BAR*/
-
-.nav_bar {
-  position: absolute;
-  width: 100%;
-  min-height: 50px;
-  top: 0;
-  left: 0;
-  background-color: #aaa;
-  display: inline-block;
-}
-
-.icons {
-  float: right;
-  display: inline-block;
-}
-
-.user_icon_container {
-  float: right;
-  margin: 10px 10px 0px 0px;
-}
-
-.expand_icon_container {
-  float: left;
-  margin: 25px 10px 0px 0px;
-}
-
-.nav_bar .user_icon { 
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-  border:1px solid #000;
-}
-
-.nav_bar .expand_icon {
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
-  border:1px solid #000;
-}
-
-/*NAVAGATION BAR DROPDOWN USER TEAMS*/
-
-.nav_dropdown {
-  display: none;
-  float: right;
-  border: 1px solid #000;
-  margin-right: 10px;
-}
-
-.nav_tile {
-  border: 1px solid #000;
-  padding: 5px;
 }
 
 /*USER SHOW PAGE*/
@@ -117,7 +62,7 @@ body {
 /*CALENDAR */
 
 .calendar_container {
-  margin-top: 20px;
+  /*margin-top: 20px;*/
 }
 
 .day {

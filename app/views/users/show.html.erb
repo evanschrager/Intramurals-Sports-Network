@@ -9,59 +9,59 @@
   <div class="nav_tile">
     <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
   </div>
-  <div class="nav_tile">
-    <%= link_to('Posts', posts_path, :method => :get) %>
-  </div>
 </div>
+<div class="user_container">
 
-<!-- TITLE -->
-<h1><%= @user.name %>'s: Dashboard</h1>
+  <!-- TITLE -->
+  <h1><%= @user.name %>'s: Dashboard</h1>
 
-<!-- NAVBAR -->
+  <!-- NAVBAR -->
 
-<!-- USER INFO -->
+  <!-- USER INFO -->
 
-<%= @user.name %><br>
-<%= "Age: " + @user.age.to_s %><br>
-<%= "Height: " + @user.height.to_s %><br>
-<%= "Weight: " + @user.weight.to_s + "lb"%><br>
-<%= @user.bio %>
-<br>
+  <%= @user.name %><br>
+  <%= "Age: " + @user.age.to_s %><br>
+  <%= "Height: " + @user.height.to_s %><br>
+  <%= "Weight: " + @user.weight.to_s + "lb"%><br>
+  <%= @user.bio %>
+  <br>
 
-<!-- JOIN TEAM  -->
+  <div class="join_create_team_container">
+    <!-- JOIN TEAM  -->
 
-<div id="join_team_form_button">Join A Team</div>
-  <div id="join_team_form">
-    <%= form_tag({controller: "teams", action: "edit"}, method: "get") do |f|%>
-      <label for="team_id_input">Enter Team Code</label>
-      <input type="text" value="" name="team_id[id]" id="team_id_input"><br>
-      <input type="submit" value="Join Team">
-    <% end %> 
+    <div id="join_team_form_button">Join A Team</div>
+      <div id="join_team_form">
+        <%= form_tag({controller: "teams", action: "edit"}, method: "get") do |f|%>
+          <label for="team_id_input">Enter Team Code</label>
+          <input type="text" value="" name="team_id[id]" id="team_id_input"><br>
+          <input type="submit" value="Join Team">
+        <% end %> 
+      </div>
+
+    <!-- TEAM CREATE -->
+
+    <div id="team_create_form_button">Create a New Team</div>
+    <div id="team_create_form">
+
+      <%= form_tag({controller: "teams", action: "create"}, method: "post") do |f|%>
+        <label for="team_name">Name</label>
+        <input type="text" value="" name="team[name]" id="team_name"><br>
+        <div class="game_form">
+          <label for="team_sport_id">Sport: </label>
+          <%= collection_select(:team, :sport_id, Sport.all, :id, :name, prompt: true) %>
+        </div>
+        <div class="player_form">
+            <label for="team_roster">Add Teammate Emails</label>
+            <input type="text" value="" name="team[roster][]" id="team_roster"><br>
+        </div>
+        <a class="player_button">Add Email</a><br>
+        <input type="submit" value="Create">
+        <div class="hidden">
+          <input type="text" value=<%= @user.id %> name="team[user_id]" id="team_games" >
+        </div>
+      <% end %>
+    </div>
   </div>
-
-<!-- TEAM CREATE -->
-
-
-<div id="team_create_form_button">Create a New Team</div>
-<div id="team_create_form">
-
-  <%= form_tag({controller: "teams", action: "create"}, method: "post") do |f|%>
-    <label for="team_name">Name</label>
-    <input type="text" value="" name="team[name]" id="team_name"><br>
-    <div class="game_form">
-      <label for="team_sport_id">Sport: </label>
-      <%= collection_select(:team, :sport_id, Sport.all, :id, :name, prompt: true) %>
-    </div>
-    <div class="player_form">
-        <label for="team_roster">Add Teammate Emails</label>
-        <input type="text" value="" name="team[roster][]" id="team_roster"><br>
-    </div>
-    <a class="player_button">Add Email</a><br>
-    <input type="submit" value="Create">
-    <div class="hidden">
-      <input type="text" value=<%= @user.id %> name="team[user_id]" id="team_games" >
-    </div>
-  <% end %>
 </div>
 
 <div class="calendar_container">
