@@ -20,7 +20,7 @@
 
 <%= @team.name %>'s Roster:<br>
 <% @team.users.each do |player_object|%>
-  - <%= player_object.name %><br>
+  - <%= player_object.name %> | <%= player_object.email %><br>
 <% end %>
 
 <div class="calendar_container">
