@@ -46,13 +46,38 @@ $(document).ready(function(){
     $('.game_attendance').click(function(){
       $('.attending_container').show('fast');
 
-      var game_info_pretrim = $(this).text();
-      var game_info = $.trim(game_info_pretrim);
-      $('.games_not_attending_game_info').val(game_info);
+      $('.remove_info').remove();
+      var game_description = $(this).find('.calendar_game_info p:nth-child(1)').text();
+      var game_time = $(this).find('.calendar_game_info p:nth-child(2)').text();
+      var game_location = $(this).find('.calendar_game_info p:nth-child(3)').text();
+      $('.close_out').append("<div class='remove_info'>"+"<div id='remove_info_gd'>"+game_description+'</div>'+"<div id='remove_info_gt'>"+game_time+'</div>'+"<div id='remove_info_gl'>"+game_location+'</div>'+"</div>")
+
+      // var game_info_pretrim = $(this).text();
+      // var game_info = $.trim(game_info_pretrim);
+      $('.games_not_attending_game_info').val(game_description);
+
 
       $('.close_out').click(function(){
         $('.attending_container').hide();
       })
     });
+
+  // CALENDAR HEADER TEXT VALUE CHANGE 
+
+  $('.calendar-header').children('a').last().text('>');
+  $('.calendar-header').children('a').first().text('<');
+
+  // SET SPORT ICON ON CALENDAR
+  $( '.Soccer' ).attr( "src", 'http://oi60.tinypic.com/2jct0yp.jpg');
+  $( '.Basketball' ).attr( "src", 'http://oi58.tinypic.com/2wrgtqo.jpg');
+  $( '.Bowling' ).attr( "src", 'http://oi57.tinypic.com/2d0b8ra.jpg');
+  $( '.Kickball' ).attr( "src", 'http://oi58.tinypic.com/jh7cax.jpg');
+  $( '.Flag_Football' ).attr( "src", 'http://oi62.tinypic.com/nmgvol.jpg');
+  $( '.Dodgeball' ).attr( "src", 'http://i62.tinypic.com/2cfb3uo_th.jpg');
+  $( '.Baseball' ).attr( "src", 'http://oi57.tinypic.com/nfpv80.jpg');
+  $( '.Softball' ).attr( "src", 'http://oi57.tinypic.com/nfpv80.jpg');
+  $( '.Tennis' ).attr( "src", 'http://i62.tinypic.com/vgpit4_th.png');
+  $( '.Volleyball' ).attr( "src", 'http://oi58.tinypic.com/wrgeh4.jpg');
+
 
 });

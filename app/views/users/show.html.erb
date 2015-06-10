@@ -62,24 +62,31 @@
 <div class="calendar_container">
   <div class="calendar">
   <% if @games.count > 0 %>
-      <%= month_calendar events: @games do |date, games| %>
-        <%= date %>
+      <%= month_calendar events: @games, day_names: "date.day_names" do |date, games| %>
+      <% if games == [] %>
+            <div class="cal_date_no_game"><%= date.day %></div>
+      <% end %>
+      <!-- IF ANY GAME ARE PRESENT MAKE CONTAINER -->
+      <% if games.length>0 %>
+          <div class="cal_date"><%= date.day %></div>
+      <% end %>
+      <!-- ITERATION: populate cal days with game icon and info -->
         <% games.each do |game| %>
-          <% if @user.games_not_attending.include?(game.id.to_s) %>
-          <% else %>
-          <div class=<%= game.team.sport.name %>></div>
-          <div class="calendar_game_info">
-            <div class="game_attendance">
-                <%= game.game_info %><br>
-            </div>
-                <%= game.game_date %><br>
-                <%= game.game_time.strftime("%I:%M%p") %><br>
-                <%= game.location %><br>
-            <%=link_to "Edit", edit_game_path(game) %> | 
-            <%= link_to 'Delete', game_path(game), :method => :delete %>
-          </div>
+            <% if @user.games_not_attending.include?(game.id.to_s) %>
+            <% else %>
+            
+                <div class="game_attendance">
+                <img class=<%= game.team.sport.name %> src="">
+                <div class="calendar_game_info">
+                      <p><%= game.game_info %><br></p>
+                      <p><%= game.game_time.strftime("%I:%M%p") %><br></p>
+                      <p><%= game.location %><br></p> 
+                </div>
+                </div>
+            
+            <% end %>
           <% end %>
-        <% end %>
+
       <% end %>
   <% end %>
   </div>

@@ -81,8 +81,8 @@
   width: 100%;
 }
 
-.day {
-  border: 1px solid black;
+td {
+  border: 10px solid #fff;
 }
 
 .create_edit_vacate_games, .attending_container{
@@ -92,6 +92,11 @@
   max-width: 200px;
   border: 1px solid black;
   display: none;
+}
+
+.attending_container {
+  margin-top: -500px;
+  margin-left: 400px;
 }
 
 .create_game_form, .hidden_team_id {
@@ -105,8 +110,8 @@
 }
 
 .game_attendance {
-  background-color: #98FB98;
-  border: 1px solid #21a521;
+  background-color: inherit;
+  border: 1px solid inherit;
   margin-top: 5px;
 }
 
@@ -145,6 +150,88 @@
 
 td.day {
   height: 150px;
+  width: 200px;
 }
+
+.day {
+  background-color: #f2f2f2;
+}
+
+.today {
+  background-color: #fff;
+  box-shadow:0px 0px 0px 5px #2e64bb inset !important;
+}
+
+.has-events {
+  box-shadow:0px 0px 0px 5px #00e4b4 inset;
+}
+
+.event_border {
+/*  border-top: 5px solid #00e4b4;
+  border-bottom: 5px solid #00e4b4;
+  border-left: 5px solid #00e4b4;
+  border-right: 5px solid #00e4b4;
+  height: 150px;
+  width: 100%;*/
+  /*margin-top: 55px;*/
+}
+
+.past {
+  background-color: #d5d5d5;
+}
+
+thead tr th, .calendar-header a {
+  color: #949494;
+  margin: 0px 20px;
+}
+
+.calendar-header a:hover {
+  color: #00e4b4;
+}
+
+tbody tr td {
+  text-align: left;
+}
+
+.cal_date_no_game {
+  margin-top: -70px;
+  margin-left: 5px;
+}
+
+.today .cal_date_no_game{
+  color: red;
+}
+
+.cal_date {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.calendar-header {
+  margin: 25px 0px;
+}
+
+.prev-month, .next-month {
+  background-color: #959595;
+}
+
+/*ICONS*/
+
+.Soccer, .Basketball, .Volleyball, .Baseball, .Flag_Football, .Dodgeball, .Kickball, .Softball {
+  height: 30px;
+  width: 30px;
+  margin-top: 80px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  float: right;
+}
+
+.Flag_Football {
+  -webkit-transform: rotate(112.5deg); /* Chrome, Safari, Opera */
+  width: 35px;
+  height: 30px;
+}
+
+
 
 
