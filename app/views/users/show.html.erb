@@ -71,12 +71,26 @@
           <div class="cal_date"><%= date.day %></div>
       <% end %>
       <!-- ITERATION: populate cal days with game icon and info -->
+        <% if games.length > 0 %>
         <% games.each do |game| %>
             <% if @user.games_not_attending.include?(game.id.to_s) %>
             <% else %>
             
                 <div class="game_attendance">
                 <img class=<%= game.team.sport.name %> src="">
+                
+                <div class='attending_container'>
+                <div class='close_out'>X</div>
+                <!-- FORM -->
+                    <div class='not_attending'>
+                      <%= form_tag({controller: "users", action: "update"}, method: "patch") do |f|%>
+                        <input type="text" value="" name="games_not_attending[game_info]" class="games_not_attending_game_info"><br>
+                        <input type="submit" value="I Can't Make It">
+                      <% end %>
+                    </div>
+                <!-- END FORM -->
+              </div>
+
                 <div class="calendar_game_info">
                       <p><%= game.game_info %><br></p>
                       <p><%= game.game_time.strftime("%I:%M%p") %><br></p>
@@ -86,10 +100,9 @@
             
             <% end %>
           <% end %>
-
+          <% end %>
       <% end %>
   <% end %>
   </div>
 </div>
 
-<%= render partial: "notAttending.html" %>

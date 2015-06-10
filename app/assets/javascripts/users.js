@@ -44,7 +44,8 @@ $(document).ready(function(){
   //ADDTENDING GAMES
 
     $('.game_attendance').click(function(){
-      $('.attending_container').show('fast');
+      // $('.attending_container').show('fast');
+      $(this).find('.attending_container').toggle('fast');
 
       $('.remove_info').remove();
       var game_description = $(this).find('.calendar_game_info p:nth-child(1)').text();
@@ -57,10 +58,10 @@ $(document).ready(function(){
       $('.games_not_attending_game_info').val(game_description);
 
 
-      $('.close_out').click(function(){
-        $('.attending_container').hide();
-      })
-    });
+      // $('.close_out').click(function(){
+      //   $('.attending_container').hide();
+      // })
+  });
 
   // CALENDAR HEADER TEXT VALUE CHANGE 
 

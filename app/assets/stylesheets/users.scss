@@ -85,7 +85,7 @@ td {
   border: 10px solid #fff;
 }
 
-.create_edit_vacate_games, .attending_container{
+.create_edit_vacate_games{
   padding: 20px;
   margin: 20px;
   background-color: #aaa;
@@ -94,9 +94,10 @@ td {
   display: none;
 }
 
-.attending_container {
-  margin-top: -500px;
-  margin-left: 400px;
+.attending_container, .games_not_attending_game_info {
+  border: 1px solid #98FB98;
+  background-color: white;
+  display: none;
 }
 
 .create_game_form, .hidden_team_id {
@@ -121,9 +122,7 @@ td {
 }
 
 .not_attending {
-  background-color: #FF3030;
-  margin-top: 5px;
-  border: 1px solid black;
+  background-color: inherit;
 }
 
 .calendar_game_info {
@@ -207,6 +206,11 @@ tbody tr td {
   margin-left: 10px;
 }
 
+.today .cal_date {
+  margin-top: -70px;
+  margin-left: 10px;
+}
+
 .calendar-header {
   margin: 25px 0px;
 }
@@ -231,6 +235,8 @@ tbody tr td {
   width: 35px;
   height: 30px;
 }
+
+
 
 
 

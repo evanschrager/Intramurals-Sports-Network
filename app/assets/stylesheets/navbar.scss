@@ -8,8 +8,15 @@
   display: inline-block;
 }
 
+.nav_dropdown {
+  background-color: #fff
+}
+
 .posts_icon {
   float: left;
+  margin-top: 7.5%;
+  font-size: 22px;
+  color: #fff;
 }
 
 .icons {
@@ -25,7 +32,7 @@
 
 .expand_icon_container {
   float: left;
-  margin: 25px 10px 0px 0px;
+  margin: 7.5px 10px 0px 20px;
 }
 
 .nav_bar .user_icon { 
@@ -36,10 +43,10 @@
 }
 
 .nav_bar .expand_icon {
-  height: 15px;
-  width: 15px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
-  border:1px solid #000;
+  border:1px solid #00e4b4;
 }
 
 .nav_dropdown {
