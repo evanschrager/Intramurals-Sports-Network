@@ -23,6 +23,8 @@ class TeamsController < ApplicationController
     # @user = User.find(params[:team][:user_id].to_i)
     @user = current_user
     @team = Team.create(name: params[:team][:name])
+
+    
     @team.hex_id = @team.random_id
 
     @user.teams << @team

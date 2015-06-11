@@ -10,7 +10,12 @@ class Team < ActiveRecord::Base
   has_many :posts, through: :users
 
   def random_id
-    SecureRandom.hex[0..3]
+    array = Team.all.map {|team| team.hex_id}
+    code = SecureRandom.hex[0..3]
+    while array.include?(code)
+      code = SecureRandom.hex[0..3]
+    end
+    code
   end
 
 end
