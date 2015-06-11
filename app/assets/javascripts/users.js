@@ -93,6 +93,17 @@ $(document).ready(function(){
   $( '.Softballteam_page' ).attr( "src", 'http://oi57.tinypic.com/nfpv80.jpg');
   $( '.Tennisteam_page' ).attr( "src", 'http://i62.tinypic.com/vgpit4_th.png');
   $( '.Volleyballteam_page' ).attr( "src", 'http://oi58.tinypic.com/wrgeh4.jpg');
+// SET SPORT ICON ON POSTS PAGE
+      $( '.Soccer_post' ).attr( "src", 'http://oi60.tinypic.com/2jct0yp.jpg');
+  $( '.Basketball_post' ).attr( "src", 'http://oi58.tinypic.com/2wrgtqo.jpg');
+  $( '.Bowling_post' ).attr( "src", 'http://oi57.tinypic.com/2d0b8ra.jpg');
+  $( '.Kickball_post' ).attr( "src", 'http://oi58.tinypic.com/jh7cax.jpg');
+  $( '.Flag_Football_post' ).attr( "src", 'http://oi62.tinypic.com/nmgvol.jpg');
+  $( '.Dodgeball_post' ).attr( "src", 'http://i62.tinypic.com/2cfb3uo_th.jpg');
+  $( '.Baseball_post' ).attr( "src", 'http://oi57.tinypic.com/nfpv80.jpg');
+  $( '.Softball_post' ).attr( "src", 'http://oi57.tinypic.com/nfpv80.jpg');
+  $( '.Tennis_post' ).attr( "src", 'http://i62.tinypic.com/vgpit4_th.png');
+  $( '.Volleyball_post' ).attr( "src", 'http://oi58.tinypic.com/wrgeh4.jpg');
 
 
 });

@@ -13,7 +13,7 @@
   width: 100vw
 }
 
-.user_container {
+.user_container, .team_container {
   margin-top: 50px;
   width: 100%;
   min-height: 150px;
@@ -199,7 +199,6 @@ tbody tr td {
 }
 
 .today .cal_date_no_game{
-  color: red;
 }
 
 .cal_date {
@@ -221,13 +220,17 @@ tbody tr td {
 
 /*ICONS*/
 
-.Soccer, .Basketball, .Volleyball, .Baseball, .Flag_Football, .Dodgeball, .Kickball, .Softball, .Soccerteam_page, .Bowling, .Bowlingteam_page, .Basketballteam_page, .Volleyballteam_page, .Baseballteam_page, .Flag_Footballteam_page, .Dodgeballteam_page, .Kickballteam_page, .Softballteam_page  {
+.Soccer, .Basketball, .Volleyball, .Baseball, .Flag_Football, .Dodgeball, .Kickball, .Softball, .Soccerteam_page, .Bowling, .Bowlingteam_page, .Basketballteam_page, .Volleyballteam_page, .Baseballteam_page, .Flag_Footballteam_page, .Dodgeballteam_page, .Kickballteam_page, .Softballteam_page,   {
   height: 30px;
   width: 30px;
   margin-top: 80px;
   margin-bottom: 15px;
   margin-right: 15px;
   float: right;
+}
+.Soccer_post, .Bowling, .Bowling_post, .Basketball_post, .Volleyball_post, .Baseball_post, .Flag_Football_post, .Dodgeball_post, .Kickball_post, .Softball_post {
+  height: 30px;
+  width: 30px;
 }
 
 .Flag_Football {
@@ -271,6 +274,6 @@ em {
   color:white;
 }
 
-/*#user_name, #user_age, #user_height, #user_weight, #user_bio, #user_email, #user_password, #user_password_confirmation {
+#user_name, #user_age, #user_height, #user_weight, #user_bio, #user_email, #user_password, #user_password_confirmation {
   color:black;
-}*/
+}

@@ -1,27 +1,32 @@
 <%= render partial: "nav.html" %>
 <!-- NAV DROPDOWN WITH USERS TEAM -->
-<div class="nav_dropdown">
-  <% current_user.teams.each do |team_object| %>
+<div class="team_container">
+  <div class="nav_dropdown">
+    <% current_user.teams.each do |team_object| %>
+      <div class="nav_tile">
+        <a href=<%="/teams/"+team_object.id.to_s%>> <%= team_object.name %> </a>
+      </div> 
+    <% end %>
     <div class="nav_tile">
-      <a href=<%="/teams/"+team_object.id.to_s%>> <%= team_object.name %> </a>
+      <a href=<%="/users/"+current_user.id.to_s%>> Dashboard </a>
     </div> 
-  <% end %>
-  <div class="nav_tile">
-    <a href=<%="/users/"+current_user.id.to_s%>> Dashboard </a>
-  </div> 
-  <div class="nav_tile">
-    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+    <div class="nav_tile">
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+    </div>
   </div>
+
+
+  <!-- START DASHBOARD -->
+  <h1><%= @team.name %> Dashboard</h1><%= link_to 'Delete Team', team_path(@team), :method => :delete %>
+  <div class="team_id"><%= @team.id %></div>
+</div>
+<div class="team_roster">
+  <%= @team.name %>'s Roster:<br>
+  <% @team.users.each do |player_object|%>
+    - <%= player_object.name %> | <%= player_object.email %><br>
+  <% end %>
 </div>
 
-<!-- START DASHBOARD -->
-<h1><%= @team.name %> Dashboard</h1><%= link_to 'Delete Team', team_path(@team), :method => :delete %>
-<div class="team_id"><%= @team.id %></div>
-
-<%= @team.name %>'s Roster:<br>
-<% @team.users.each do |player_object|%>
-  - <%= player_object.name %> | <%= player_object.email %><br>
-<% end %>
 
 <div class="cal_create_game"><div class="close_window">X</div>
     <div class="create_game_form">

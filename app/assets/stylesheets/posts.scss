@@ -1,3 +1,70 @@
-// Place all the styles related to the Posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.posts_container {
+  width: 100%;
+  text-align: center;
+}
+
+#post_sport_id {
+  background-color: #fff;
+  color: #333;
+  height: 40px;
+  width: 150px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.open_spots form input[type=submit] {
+  background-color: #00edb5;
+  color: white;
+  height: 40px;
+  width: 60px;
+}
+
+.attending_post form input[type=submit] {
+  background-color: #00edb5;
+  color: white;
+  height: 40px;
+  width: 120px;
+}
+
+.open_spots h1 {
+  color: #333333;
+  width: 100;
+}
+
+.add_post div ul li, .add_post {
+  list-style: none;
+}
+
+.add_post div ul {
+  padding: 0px;
+}
+
+.open_spots {
+  border-bottom: 2px solid #e1e1e1;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.posts_attending_game_info {
+  text-align: center;
+  border: none;
+  color: #fff;
+}
+
+.Soccer_post, .Bowling, .Bowling_post, .Basketball_post, .Volleyball_post, .Baseball_post, .Flag_Football_post, .Dodgeball_post, .Kickball_post, .Softball_post {
+  height: 30px;
+  width: 30px;
+  margin-left: 300px;
+  margin-top: -100px;
+}
+
+.post_title {
+  font-weight: 800;
+}
+
+.add_post {
+  margin-top: 20px;
+  border-bottom: 2px solid #e1e1e1
+}
+
+

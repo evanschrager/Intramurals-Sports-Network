@@ -1,21 +1,41 @@
-<%= link_to "User Dashboard", current_user %>
-<h1>Posts</h1>
-<%= link_to "All Posts", posts_path %>
-<label for="post_sport_id">Sort Posts By Sport:</label>
-<%= form_tag({controller: "posts", action: "index"}, method: "get") do |f|%>
-<%= collection_select(:post, :sport_id, Sport.all, :id, :name, prompt: true) %>
-<input type="submit" value="Filter">
-<% end %>
-
-<% @posts.each do |post| %>
-  <div><li class='add_post'>
-  <div>
-    <div class="post_title"><%= post.title %></div>
-    <ul>
-      <li>Game Date: <%= post.game.game_date %></li>
-      <li>Game Time: <%= post.game.game_time.strftime("%I:%M%p") %></li>
-      <li>Location: <%= post.game.location %></li>
-    </ul>
+<%= render partial: "nav.html" %>
+<div class="user_container">
+<!-- NAV DROPDOWN WITH USERS TEAM -->
+<div class="user_name_container">
+  <div class="user_name">Game Postings</div>
+</div>
+<div class="nav_dropdown">
+  <div class="nav_tile">
+    <div><%= link_to "Dashboard", current_user %></div>
+    <div><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></div>
   </div>
-  <%= render partial: "attendingPostedGame.html" %></li></div>
-<% end %>  
+</div>
+</div>
+
+<div class="posts_container">
+  <div class="open_spots">
+  <div class="open_spots_text">
+    <h1>Open Spots</h1>
+    <%= link_to "All Posts", posts_path %>
+    <%= form_tag({controller: "posts", action: "index"}, method: "get") do |f|%>
+    <%= collection_select(:post, :sport_id, Sport.all, :id, :name, prompt: true) %>
+    <input type="submit" value="Filter">
+    <% end %>
+  </div>
+  </div>
+  <div class="posts">
+    <% @posts.each do |post| %>
+      <div><li class='add_post'>
+      <div>
+        <div class="post_title"><%= post.title %></div>
+        <ul>
+          <li><strong>Game Date:</strong> <%= post.game.game_date %></li>
+          <li><strong>Game Time:</strong> <%= post.game.game_time.strftime("%I:%M%p") %></li>
+          <li><strong>Location:</strong> <%= post.game.location %></li>
+          <img class=<%= post.game.team.sport.name+'_post' %> src="">
+        </ul>
+      </div>
+      <%= render partial: "attendingPostedGame.html" %></li></div>
+    <% end %> 
+  </div> 
+</div>
