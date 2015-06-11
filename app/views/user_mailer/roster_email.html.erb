@@ -6,7 +6,11 @@
   <body>
     <h1>Hi <%= @user %></h1>
     <p>
-      You have been invited to join a team! Follow this empty link to join!.
+      You've been invited to join the <%= @team.name %> on the Intramural Sports Network!
+    </p>
+    <p>
+      Please follow the link below and use the following team code. <br><br>
+      Team Code: <%= @team.hex_id %>
     </p>
     <a href="http://www.google.com">Empty Link</a>
   </body>

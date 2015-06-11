@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   
   def edit
-    @team = Team.find(params[:team_id][:id])
+    @team = Team.where(:hex_id => params[:team_id][:id]).first
     @user = User.find(params[:id])
     if !@team.users.include?(@user)
       @team.users << @user
@@ -23,6 +23,7 @@ class TeamsController < ApplicationController
     # @user = User.find(params[:team][:user_id].to_i)
     @user = current_user
     @team = Team.create(name: params[:team][:name])
+    @team.hex_id = @team.random_id
 
     @user.teams << @team
 

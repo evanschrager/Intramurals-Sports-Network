@@ -17,7 +17,7 @@ Rails.application.configure do
     user_name:            'ISNFlatiron@gmail.com',
     password:             'octocats',
     authentication:       'plain',
-    enable_starttls_auto: true  
+    enable_starttls_auto: true
   }
 
   # Eager load code on boot. This eager loads most of Rails and
