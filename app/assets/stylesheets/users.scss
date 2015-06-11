@@ -86,12 +86,22 @@ td {
 }
 
 .create_edit_vacate_games{
-  padding: 20px;
-  margin: 20px;
+  margin: -2% 0% 0% 2.5%;
   background-color: #aaa;
-  max-width: 200px;
+  max-width: 100px;
   border: 1px solid black;
   display: none;
+  position: fixed;
+}
+
+.cal_create_game{
+  padding: 20px;
+  margin: 20px;
+  background-color: #00e4b4;
+  max-width: 300px;
+  border: 5px solid #2e64bb;
+  display: none;
+  box-shadow: 10px 5px 5px #999;
 }
 
 .attending_container, .games_not_attending_game_info {
@@ -165,16 +175,6 @@ td.day {
   box-shadow:0px 0px 0px 5px #00e4b4 inset;
 }
 
-.event_border {
-/*  border-top: 5px solid #00e4b4;
-  border-bottom: 5px solid #00e4b4;
-  border-left: 5px solid #00e4b4;
-  border-right: 5px solid #00e4b4;
-  height: 150px;
-  width: 100%;*/
-  /*margin-top: 55px;*/
-}
-
 .past {
   background-color: #d5d5d5;
 }
@@ -207,7 +207,6 @@ tbody tr td {
 }
 
 .today .cal_date {
-  margin-top: -70px;
   margin-left: 10px;
 }
 
@@ -221,7 +220,7 @@ tbody tr td {
 
 /*ICONS*/
 
-.Soccer, .Basketball, .Volleyball, .Baseball, .Flag_Football, .Dodgeball, .Kickball, .Softball {
+.Soccer, .Basketball, .Volleyball, .Baseball, .Flag_Football, .Dodgeball, .Kickball, .Softball, .Soccerteam_page, .Bowling, .Bowlingteam_page, .Basketballteam_page, .Volleyballteam_page, .Baseballteam_page, .Flag_Footballteam_page, .Dodgeballteam_page, .Kickballteam_page, .Softballteam_page  {
   height: 30px;
   width: 30px;
   margin-top: 80px;

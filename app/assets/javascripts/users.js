@@ -22,21 +22,22 @@ $(document).ready(function(){
       });
 
   // ADD GAME TO CALENDAR ON CLICK
-    $('.day').click(function(){
-      $('.create_edit_vacate_games').show('fast')
+    $('.day').dblclick(function(){
+      $('.cal_create_game').toggle("fast");
+
+      $('.create_edit_vacate_games').show('fast');
+        $('.create_game_form').show('fast');
     });
 
     $('.close_window').click(function(){
-      $('.create_edit_vacate_games').hide('fast');
-    });
-
-    $('.create_game_button').click(function(){
-      $('.create_game_form').toggle('fast')
+      $(this).parent().hide()
+      // $('.create_edit_vacate_games').hide('fast');
     });
 
     $('.day').click(function(){
       var team_id = $('.team_id').text();
-      var game_date = $(this).text();
+      var game_date = $(this).text().trim();
+      debugger;
       $('#game_date').val(game_date);
       $('.hidden_team_id').val(team_id);
     });
@@ -45,6 +46,7 @@ $(document).ready(function(){
 
     $('.game_attendance').click(function(){
       // $('.attending_container').show('fast');
+      $('.create_edit_vacate_games').hide('fast');
       $(this).find('.attending_container').toggle('fast');
 
       $('.remove_info').remove();
@@ -53,14 +55,15 @@ $(document).ready(function(){
       var game_location = $(this).find('.calendar_game_info p:nth-child(3)').text();
       $('.close_out').append("<div class='remove_info'>"+"<div id='remove_info_gd'>"+game_description+'</div>'+"<div id='remove_info_gt'>"+game_time+'</div>'+"<div id='remove_info_gl'>"+game_location+'</div>'+"</div>")
 
-      // var game_info_pretrim = $(this).text();
-      // var game_info = $.trim(game_info_pretrim);
+
       $('.games_not_attending_game_info').val(game_description);
 
 
-      // $('.close_out').click(function(){
-      //   $('.attending_container').hide();
-      // })
+
+    $(this).find('input[type="submit"]').click(function(){
+      var day = $(this).parent().parent().parent().parent().parent();
+      day.removeClass('has-events')
+    });
   });
 
   // CALENDAR HEADER TEXT VALUE CHANGE 
@@ -79,6 +82,17 @@ $(document).ready(function(){
   $( '.Softball' ).attr( "src", 'http://oi57.tinypic.com/nfpv80.jpg');
   $( '.Tennis' ).attr( "src", 'http://i62.tinypic.com/vgpit4_th.png');
   $( '.Volleyball' ).attr( "src", 'http://oi58.tinypic.com/wrgeh4.jpg');
+  // SET SPORT ICON ON TEAM_CALENDAR
+    $( '.Soccerteam_page' ).attr( "src", 'http://oi60.tinypic.com/2jct0yp.jpg');
+  $( '.Basketballteam_page' ).attr( "src", 'http://oi58.tinypic.com/2wrgtqo.jpg');
+  $( '.Bowlingteam_page' ).attr( "src", 'http://oi57.tinypic.com/2d0b8ra.jpg');
+  $( '.Kickballteam_page' ).attr( "src", 'http://oi58.tinypic.com/jh7cax.jpg');
+  $( '.Flag_Footballteam_page' ).attr( "src", 'http://oi62.tinypic.com/nmgvol.jpg');
+  $( '.Dodgeballteam_page' ).attr( "src", 'http://i62.tinypic.com/2cfb3uo_th.jpg');
+  $( '.Baseballteam_page' ).attr( "src", 'http://oi57.tinypic.com/nfpv80.jpg');
+  $( '.Softballteam_page' ).attr( "src", 'http://oi57.tinypic.com/nfpv80.jpg');
+  $( '.Tennisteam_page' ).attr( "src", 'http://i62.tinypic.com/vgpit4_th.png');
+  $( '.Volleyballteam_page' ).attr( "src", 'http://oi58.tinypic.com/wrgeh4.jpg');
 
 
 });

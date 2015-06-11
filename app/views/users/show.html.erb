@@ -61,9 +61,16 @@
 
 <div class="calendar_container">
   <div class="calendar">
-  <% if @games.count > 0 %>
+  <% if @games.count == 0 %>
+    <%= month_calendar events: @games, day_names: "date.day_names" do |date, games| %>
+    <% if games.length == 0 %>
+          <div class="cal_date_no_game"><%= date.day %></div>
+    <% end %>
+  <% end %>
+  <% end %>
+    <% if @games.count > 0 %>
       <%= month_calendar events: @games, day_names: "date.day_names" do |date, games| %>
-      <% if games == [] %>
+      <% if games.length == 0 %>
             <div class="cal_date_no_game"><%= date.day %></div>
       <% end %>
       <!-- IF ANY GAME ARE PRESENT MAKE CONTAINER -->
