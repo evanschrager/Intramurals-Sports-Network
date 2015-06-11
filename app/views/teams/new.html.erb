@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $(document).ready(function(){
     $('.player_button').click(function(){
         $('.player_form').append('<input type="text" value="" name="team[roster][]" id="team_roster"><br>')
@@ -7,20 +7,31 @@
     $('.game_form').append('<input type="text" value="" name="team[games][]" id="team_games"><br>')
     });
   });  
-</script>
+</script> -->
+<img src="/assets/MJ-307444b976cabe761fa4c2e825a112fc2c554145d6470dd8bf6f05da3a0245b8.jpg" alt="MJ" class="mj_img">
 
-<%= form_for @team, url: {action: "create"} do |f| %>
-  <%= f.label :name %><br>
-  <%= f.text_field :name %><br>
-  <div class="player_form">
-  <%= f.label "Add Teammate Emails" %><br>
-  <input type="text" value="" name="team[roster][]" id="team_roster"><br>
+<div class="create_team">
+  <div id="create_team_container">
+  <h2 id="white_label">Create a Team</h2><br>
+
+   <%= form_tag({controller: "teams", action: "create"}, method: "post") do |f|%>
+     <label for="team_name" id="white_label">Name</label>
+     <input type="text" value="" name="team[name]" id="team_name"><br><br>
+     <div class="game_form">
+       <label for="team_sport_id" id="white_label">Sport: </label>
+       <%= collection_select(:team, :sport_id, Sport.all, :id, :name, prompt: true) %>
+     </div><br>
+     <div class="player_form">
+         <label for="team_roster" id="white_label">Add Teammate Emails</label>
+         <input type="text" value="" name="team[roster][]" id="team_roster"><br>
+     </div>
+     <a class="player_button">Add Email</a><br><br>
+     <input type="submit" value="Create"><br><br>
+     <div class="hidden">
+       <input type="text" value=<%= @user.id %> name="team[user_id]" id="team_games" >
+    </div>
+   <% end %>
+   <%= link_to "User Dashboard", user_path(current_user) %>
   </div>
-  <a class="player_button">Add Players</a><br>
-  <div class="game_form">
-  <%= f.label "Team Schedule" %><br>
-  <input type="text" value="" name="team[games][]" id="team_games"><br>
-  </div>
-  <a class="game_button">Add Games</a><br>
-  <%= f.submit "Create" %>
-<% end %>
+</div>
+

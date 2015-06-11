@@ -1,25 +1,27 @@
-<h2>Sign up</h2>
+<img src="/assets/bball_court-7ec56ad57d9dde1abc9567ddd857d7c95b46a6460946ab7fcefd4f19b76e4196.jpg" alt="Bball Court" class="signup_img">
+<div class="signup_page_container">
+<h2 id="header1">Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :name %><br>
+  <div class="field" id="white_label">
+  <label id="white_label">Name</label><br>
     <%= f.text_field :name %><br>
-    <%= f.label :age %><br>
+    <label id="white_label">Age</label><br>
     <%= f.text_field :age %><br>
-    <%= f.label :height %><br>
+    <label id="white_label">Height</label><br>
     <%= f.text_field :height %><br>
-    <%= f.label :weight %><br>
+    <label id="white_label">Weight</label><br>
     <%= f.text_field :weight %><br>
-    <%= f.label :bio %><br>
-    <%= f.text_area :bio, size: "60x4 " %><br>
-    <%= f.label :email %><br />
+    <label id="white_label">Bio</label><br>
+    <%= f.text_area :bio, size: "40x4 " %><br>
+    <label id="white_label">Email</label><br>
     <%= f.email_field :email, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <label id="white_label">Password</label><br>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -27,13 +29,16 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <label id="white_label">Password Confirmation</label><br>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
+  <div class="actions" id="signup_button">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+<br>
+
 
 <%= render "devise/shared/links" %>
+</div>

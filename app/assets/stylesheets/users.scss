@@ -7,6 +7,7 @@
 }
 
 .login_page_container {
+  padding-left: 15px;
   position: absolute;
   height: 100vh;
   width: 100vw
@@ -235,8 +236,41 @@ tbody tr td {
   height: 30px;
 }
 
+/* Sign up page */
+.signup_img {
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  height: 100%;
+  width: 100%;
+}
+/* Sign up page */
+.signup_page_container {
+  padding-left: 20px;
+  position: absolute;
+  height: 100vh;
+  width: 100vh;
+}
 
+/* Sign up page header */
+#header1 {
+  border: 40px;
+  color:white;
+}
 
+#signup_button {
+  color: black;
+  border-radius: 10px;
+}
+/*text white on sign up page*/
+#white_label {
+  color:white;
+}
+/* Password container */
+em {
+  color:white;
+}
 
-
-
+/*#user_name, #user_age, #user_height, #user_weight, #user_bio, #user_email, #user_password, #user_password_confirmation {
+  color:black;
+}*/

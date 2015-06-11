@@ -13,9 +13,15 @@ class TeamsController < ApplicationController
     end
   end
 
+  def new
+    @team = Team.new
+    @user = current_user
+  end
+
   def create
 
-    @user = User.find(params[:team][:user_id].to_i)
+    # @user = User.find(params[:team][:user_id].to_i)
+    @user = current_user
     @team = Team.create(name: params[:team][:name])
 
     @user.teams << @team
@@ -28,6 +34,11 @@ class TeamsController < ApplicationController
     @team.sport = @sport
 
     @team.save
+
+    # Send email to all emails included in roster in team creation
+    @team.roster_emails.each do |email_address|
+      UserMailer.roster_email(email_address).deliver_now
+    end
     
     redirect_to team_path(@team)
   end 

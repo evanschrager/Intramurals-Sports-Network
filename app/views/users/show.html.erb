@@ -34,7 +34,7 @@
     <!-- TEAM CREATE -->
     <!-- <div class="join_team"> -->
     <div class="create_team">
-      <div id="team_create_form_button">New Team</div>
+      <div id="team_create_form_button"><%= link_to "New Team", new_team_path %></div>
       <div id="team_create_form">
 
         <%= form_tag({controller: "teams", action: "create"}, method: "post") do |f|%>
@@ -58,6 +58,9 @@
     </div>
   </div>
 </div>
+  
+  <!-- CREATE A TEAM -->
+  
 
 <div class="calendar_container">
   <div class="calendar">
