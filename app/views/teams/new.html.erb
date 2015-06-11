@@ -26,11 +26,12 @@
          <input type="text" value="" name="team[roster][]" id="team_roster"><br>
      </div>
      <a class="player_button">Add Email</a><br><br>
-     <input type="submit" value="Create">
+     <input type="submit" value="Create"><br><br>
      <div class="hidden">
        <input type="text" value=<%= @user.id %> name="team[user_id]" id="team_games" >
     </div>
    <% end %>
+   <%= link_to "User Dashboard", user_path(current_user) %>
   </div>
 </div>
 
