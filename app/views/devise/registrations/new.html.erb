@@ -33,10 +33,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="actions">
+  <div class="actions" id="signup_button">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
+<br>
 
 
 <%= render "devise/shared/links" %>
