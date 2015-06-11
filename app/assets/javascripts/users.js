@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
   // CREATE TEAM ON USER DASHBOARD PAGE
-      $('#team_create_form_button').click(function(){
-        $('#team_create_form').toggle("slow");
-      });
+      // $('#team_create_form_button').click(function(){
+      //   $('#team_create_form').toggle("slow");
+      // });
       $('#join_team_form_button').click(function(){
         $('#join_team_form').toggle("slow");
       });

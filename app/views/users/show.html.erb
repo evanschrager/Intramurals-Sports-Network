@@ -37,32 +37,9 @@
           <input type="submit" value="Join Team">
         <% end %> 
       </div>
-
-    <!-- TEAM CREATE -->
-
-    <div id="team_create_form_button">Create a New Team</div>
-    <div id="team_create_form">
-
-      <%= form_tag({controller: "teams", action: "create"}, method: "post") do |f|%>
-        <label for="team_name">Name</label>
-        <input type="text" value="" name="team[name]" id="team_name"><br>
-        <div class="game_form">
-          <label for="team_sport_id">Sport: </label>
-          <%= collection_select(:team, :sport_id, Sport.all, :id, :name, prompt: true) %>
-        </div>
-        <div class="player_form">
-            <label for="team_roster">Add Teammate Emails</label>
-            <input type="text" value="" name="team[roster][]" id="team_roster"><br>
-        </div>
-        <a class="player_button">Add Email</a><br>
-        <input type="submit" value="Create">
-        <div class="hidden">
-          <input type="text" value=<%= @user.id %> name="team[user_id]" id="team_games" >
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+  
+  <!-- CREATE A TEAM -->
+  <%= link_to "Create A Team!", new_team_path %>
 
 <div class="calendar_container">
 <% if @games.count > 0 %>
