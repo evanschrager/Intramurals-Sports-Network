@@ -3,6 +3,10 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
   end 
 
+  def new
+    @game = Game.new
+  end
+
   def update
     @game = Game.find(params[:id])
     @game.update(:game_info => params[:game][:game_info], :game_time => params[:game][:game_time], :game_date => params[:game][:game_date], :location => params[:game][:location])
