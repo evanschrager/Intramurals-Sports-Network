@@ -29,6 +29,7 @@
       <div>
         <div class="post_title"><%= post.title %></div>
         <ul>
+          <li><strong>Team:</strong> <%= post.game.team.name %></li>
           <li><strong>Game Date:</strong> <%= post.game.game_date %></li>
           <li><strong>Game Time:</strong> <%= post.game.game_time.strftime("%I:%M%p") %></li>
           <li><strong>Location:</strong> <%= post.game.location %></li>
