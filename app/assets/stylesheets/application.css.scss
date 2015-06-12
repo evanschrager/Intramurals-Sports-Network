@@ -58,6 +58,27 @@ body {
   color: white; 
 }
 
+.signup_page_container {
+  width: 370px;
+  height: 640px;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-left: 2%;
+  margin-top: 10px;
+  color: white; 
+}
+
+.actions input[type=submit] {
+  color: white;
+  width: 80px;
+  height: 25px;
+  margin-top: 5px;
+  margin-right: 50px;
+  border-radius: 5%;
+  font-size: 14px;
+  text-align: center;
+  background-color: #2e64bb
+}
+
 #sign_in_logo {
   font-size: 100px;
   font-weight: 800;
