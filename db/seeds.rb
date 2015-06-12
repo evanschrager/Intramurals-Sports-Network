@@ -1,10 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# We will have to join teams manually via the below Users. 
+# The games should be created automatically.
+# We will have to also create the posts manually via the web page.
 
 basketball = Sport.create(:name => "Basketball")
 soccer = Sport.create(:name => "Soccer")
@@ -16,3 +13,36 @@ softball = Sport.create(:name => "Softball")
 tennis = Sport.create(:name => "Tennis")
 vollyball = Sport.create(:name => "Vollyball")
 baseball = Sport.create(:name => "Baseball")
+
+user1 = User.create(:name => "Joe Schmo1", :age => 30, :height =>"6'1''", :weight =>190, :bio =>"I like coding", :email =>"example1@example.com", :password => "password")
+user2 = User.create(:name => "Joe Schmo2", :age => 31, :height =>"5'10''", :weight =>180, :bio =>"I like coding", :email =>"example2@example.com", :password => "password")
+user3 = User.create(:name => "Joe Schmo3", :age => 27, :height =>"5'11''", :weight =>180, :bio =>"I like coding", :email =>"example3@example.com", :password => "password")
+user4 = User.create(:name => "Joe Schmo4", :age => 30, :height =>"5'10''", :weight =>180, :bio =>"I like coding", :email =>"example4@example.com", :password => "password")
+user5 = User.create(:name => "Joe Schmo5", :age => 30, :height =>"5'10''", :weight =>190, :bio =>"I like coding", :email =>"example5@example.com", :password => "password")
+user6 = User.create(:name => "Joe Schmo6", :age => 39, :height =>"5'8''", :weight =>190, :bio =>"I like coding", :email =>"example6@example.com", :password => "password")
+user7 = User.create(:name => "Joe Schmo7", :age => 30, :height =>"5'10''", :weight =>170, :bio =>"I like coding", :email =>"example7@example.com", :password => "password")
+user8 = User.create(:name => "Joe Schmo8", :age => 50, :height =>"5'10''", :weight =>170, :bio =>"I like coding", :email =>"example8@example.com", :password => "password")
+user9 = User.create(:name => "Joe Schmo9", :age => 30, :height =>"5'9''", :weight =>170, :bio =>"I like coding", :email =>"example9@example.com", :password => "password")
+user10 = User.create(:name => "Joe Schmo10", :age => 18, :height =>"5'10''", :weight =>190, :bio =>"I like coding", :email =>"example10@example.com", :password => "password")
+user11 = User.create(:name => "Joe Schmo11", :age => 30, :height =>"5'5''", :weight =>150, :bio =>"I like coding", :email =>"example11@example.com", :password => "password")
+user12 = User.create(:name => "Joe Schmo12", :age => 30, :height =>"5'5''", :weight =>150, :bio =>"I like coding", :email =>"example12@example.com", :password => "password")
+
+team1 = Team.create(:name => "Team1", :sport_id => 1, :hex_id => 1111)
+team2 = Team.create(:name => "Team1", :sport_id => 2, :hex_id => 2222)
+team3 = Team.create(:name => "Team1", :sport_id => 3, :hex_id => 3333)
+team4 = Team.create(:name => "Team1", :sport_id => 4, :hex_id => 4444)
+team5 = Team.create(:name => "Team1", :sport_id => 5, :hex_id => 5555)
+team6 = Team.create(:name => "Team1", :sport_id => 6, :hex_id => 6666)
+
+game1 = Game.create(:game_date => 2015-06-15, :location => "The Flatiron School", :game_info => "Game 1", :team_id => 1, :user_id => 1, :game_time => "07:00PM")
+game2 = Game.create(:game_date => 2015-06-16, :location => "Park Avenue Gym", :game_info => "Game 2", :team_id => 2, :user_id => 2, :game_time => "07:00PM")
+game3 = Game.create(:game_date => 2015-06-17, :location => "Park Avenue Gym", :game_info => "Game 3", :team_id => 3, :user_id => 3, :game_time => "07:00PM")
+game4 = Game.create(:game_date => 2015-06-18, :location => "PS 105", :game_info => "Game 4", :team_id => 4, :user_id => 4, :game_time => "07:00PM")
+game5 = Game.create(:game_date => 2015-06-19, :location => "PS 105", :game_info => "Game 5", :team_id => 5, :user_id => 5, :game_time => "07:00PM")
+game6 = Game.create(:game_date => 2015-06-20, :location => "Prospect Park", :game_info => "Game 6", :team_id => 6, :user_id => 6, :game_time => "07:00PM")
+game7 = Game.create(:game_date => 2015-06-21, :location => "Prospect Park", :game_info => "Game 7", :team_id => 1, :user_id => 1, :game_time => "07:00PM")
+game8 = Game.create(:game_date => 2015-06-22, :location => "Prospect Park", :game_info => "Game 8", :team_id => 2, :user_id => 2, :game_time => "07:00PM")
+game9 = Game.create(:game_date => 2015-06-23, :location => "The Flatiron School", :game_info => "Game 9", :team_id => 3, :user_id => 3, :game_time => "07:00PM")
+game10 = Game.create(:game_date => 2015-06-24, :location => "NYHRC Whitehall", :game_info => "Game 10", :team_id => 4, :user_id => 4, :game_time => "07:00PM")
+game11 = Game.create(:game_date => 2015-06-25, :location => "NYHRC Whitehall", :game_info => "Game 11", :team_id => 5, :user_id => 5, :game_time => "07:00PM")
+game12 = Game.create(:game_date => 2015-06-25, :location => "NYHRC Whitehall", :game_info => "Game 12", :team_id => 6, :user_id => 6, :game_time => "07:00PM")
