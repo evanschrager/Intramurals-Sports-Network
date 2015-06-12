@@ -103,6 +103,8 @@ $(document).ready(function(){
   $( '.Softball_post' ).attr( "src", 'http://oi57.tinypic.com/nfpv80.jpg');
   $( '.Tennis_post' ).attr( "src", 'http://i62.tinypic.com/vgpit4_th.png');
   $( '.Volleyball_post' ).attr( "src", 'http://oi58.tinypic.com/wrgeh4.jpg');
+// REMOVE ICONS IF GAME WAS POSTED
 
+  $('td:not(:has(img))').removeClass('has-events');
 
 });
