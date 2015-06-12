@@ -59,6 +59,10 @@
   background-color: #00e4b4
 }
 
+#team_create_form_button a {
+  color: white;
+}
+
 
  /*JUNK FROM FORMER CSS PAGE*/
  #team_create_form, #join_team_form {
@@ -168,6 +172,8 @@ td.day {
 }
 
 .today {
+  padding-top: 15px;
+  padding-left: 7px;
   background-color: #fff;
   box-shadow:0px 0px 0px 5px #2e64bb inset !important;
 }

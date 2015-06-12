@@ -107,4 +107,5 @@ $(document).ready(function(){
 
   $('td:not(:has(img))').removeClass('has-events');
 
+  $('td:not(:has(img))').children().removeClass('cal_date').addClass('cal_date_no_game')
 });

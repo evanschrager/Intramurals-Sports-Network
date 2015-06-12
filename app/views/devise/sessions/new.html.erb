@@ -1,29 +1,38 @@
 <img src="http://oi59.tinypic.com/307lv8n.jpg" id="login_img" alt="">
-<div class="login_page_container">
-  <h2>Log in</h2>
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+<div class="sign_in_conatiner">
+    <div class="sign_in_logo_container" >
+      <div id="sign_in_logo">Free Agnt</div>
+      <div id="sign_in_sublogo">Never Miss a Game</div>
     </div>
-
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-
-    <% if devise_mapping.rememberable? -%>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
+    <div class="login_page_container">
+      <div class="login_title">
+        <h2>Log in</h2>
       </div>
-    <% end -%>
+      <div class="login_form">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true %>
+          </div>
 
-    <div class="actions">
-      <%= f.submit "Log in" %>
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+
+          <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end -%>
+
+          <div class="actions">
+            <div class="login_submit"><%= f.submit "Log in" %></div>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
 </div>
