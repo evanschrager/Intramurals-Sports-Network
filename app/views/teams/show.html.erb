@@ -85,7 +85,11 @@
                 <div class="calendar_game_info">
                       <p><%= game.game_info %><br></p>
                       <p><%= game.game_time.strftime("%I:%M%p") %><br></p>
-                      <p><%= game.location %><br></p> 
+                      <p><%= game.location %><br></p>
+                      <p><%= link_to edit_game_path %><br></p>
+                      <p><%= link_to "Edit", edit_game_path %><br>
+                      </p>
+                      <%= link_to 'Delete', team_path(game), :method => :delete %>
                 </div>
                 </div>
             
