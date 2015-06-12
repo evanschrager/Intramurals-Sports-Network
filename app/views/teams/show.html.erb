@@ -17,13 +17,13 @@
 
 
   <!-- START DASHBOARD -->
-  <h1><%= @team.name %> Dashboard</h1><%= link_to 'Delete Team', team_path(@team), :method => :delete %>
+  <h1><%= @team.name %> Dashboard</h1><div id="team_delete_link"><%= link_to 'Delete Team', team_path(@team), :method => :delete %></div>
   <div class="team_id"><%= @team.id %></div>
 </div>
 <div class="team_roster">
-  <%= @team.name %>'s Roster:<br>
+ <div id="roster_title">Roster</div><br>
   <% @team.users.each do |player_object|%>
-    - <%= player_object.name %> | <%= player_object.email %><br>
+    <div class="roster_player">- <%= player_object.name %> | <%= player_object.email %><br></div>
   <% end %>
 </div>
 

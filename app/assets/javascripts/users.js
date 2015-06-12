@@ -30,7 +30,7 @@ $(document).ready(function(){
     });
 
     $('.close_window').click(function(){
-      $(this).parent().hide()
+      $(this).parent().hide("fast")
       // $('.create_edit_vacate_games').hide('fast');
     });
 
